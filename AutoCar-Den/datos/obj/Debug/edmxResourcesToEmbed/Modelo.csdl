@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RENTCARModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Contrato">
+    <Key>
+      <PropertyRef Name="id_contrato" />
+    </Key>
+    <Property Name="id_contrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha_inicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_termino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="argumento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fk_id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="Fk_id_vehiculo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Contrato_Contrato" FromRole="Contrato" ToRole="Vehiculo" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Contrato_Usuario" FromRole="Contrato" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contratoes" Relationship="Self.FK_Contrato_Usuario" FromRole="Usuario" ToRole="Contrato" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="id_vehiculo" />
+    </Key>
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="anio" Type="Int32" Nullable="false" />
+    <Property Name="nro_puertas" Type="Int32" Nullable="false" />
+    <Property Name="nro_pasajeros" Type="Int32" Nullable="false" />
+    <Property Name="trasmision" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contratoes" Relationship="Self.FK_Contrato_Contrato" FromRole="Vehiculo" ToRole="Contrato" />
+  </EntityType>
+  <Association Name="FK_Contrato_Contrato">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="id_vehiculo" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="Fk_id_vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contrato_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="Fk_id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RENTCAREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Contratoes" EntityType="Self.Contrato" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="Vehiculoes" EntityType="Self.Vehiculo" />
+    <AssociationSet Name="FK_Contrato_Contrato" Association="Self.FK_Contrato_Contrato">
+      <End Role="Vehiculo" EntitySet="Vehiculoes" />
+      <End Role="Contrato" EntitySet="Contratoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contrato_Usuario" Association="Self.FK_Contrato_Usuario">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Contrato" EntitySet="Contratoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

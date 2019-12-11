@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RentcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contrato">
+    <Key>
+      <PropertyRef Name="id_contrato" />
+    </Key>
+    <Property Name="id_contrato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_inicio" Type="datetime" Nullable="false" />
+    <Property Name="fecha_termino" Type="datetime" Nullable="false" />
+    <Property Name="argumento" Type="varchar(max)" Nullable="false" />
+    <Property Name="Fk_id_usuario" Type="int" Nullable="false" />
+    <Property Name="Fk_id_vehiculo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="id_vehiculo" />
+    </Key>
+    <Property Name="id_vehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marca" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="anio" Type="int" Nullable="false" />
+    <Property Name="nro_puertas" Type="int" Nullable="false" />
+    <Property Name="nro_pasajeros" Type="int" Nullable="false" />
+    <Property Name="trasmision" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="imagen" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Contrato_Contrato">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="id_vehiculo" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="Fk_id_vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contrato_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="Fk_id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RentcarModelStoreContainer">
+    <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Contrato_Contrato" Association="Self.FK_Contrato_Contrato">
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+      <End Role="Contrato" EntitySet="Contrato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contrato_Usuario" Association="Self.FK_Contrato_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Contrato" EntitySet="Contrato" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,12 @@
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\bin\Debug\negocio.dll.config
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\bin\Debug\negocio.dll
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\bin\Debug\negocio.pdb
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\bin\Debug\datos.dll
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\bin\Debug\EntityFramework.dll
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\bin\Debug\datos.pdb
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\bin\Debug\datos.dll.config
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\bin\Debug\EntityFramework.xml
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\obj\Debug\negocio.csprojAssemblyReference.cache
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\obj\Debug\negocio.csproj.CopyComplete
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\obj\Debug\negocio.dll
+C:\Users\tukin\source\repos\AutoCar-Den\negocio\obj\Debug\negocio.pdb

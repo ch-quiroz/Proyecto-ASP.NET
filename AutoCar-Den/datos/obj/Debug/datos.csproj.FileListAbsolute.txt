@@ -1,0 +1,9 @@
+C:\Users\tukin\source\repos\AutoCar-Den\datos\bin\Debug\datos.dll
+C:\Users\tukin\source\repos\AutoCar-Den\datos\bin\Debug\datos.pdb
+C:\Users\tukin\source\repos\AutoCar-Den\datos\obj\Debug\datos.csprojAssemblyReference.cache
+C:\Users\tukin\source\repos\AutoCar-Den\datos\obj\Debug\datos.dll
+C:\Users\tukin\source\repos\AutoCar-Den\datos\obj\Debug\datos.pdb
+C:\Users\tukin\source\repos\AutoCar-Den\datos\bin\Debug\datos.dll.config
+C:\Users\tukin\source\repos\AutoCar-Den\datos\bin\Debug\EntityFramework.dll
+C:\Users\tukin\source\repos\AutoCar-Den\datos\bin\Debug\EntityFramework.xml
+C:\Users\tukin\source\repos\AutoCar-Den\datos\obj\Debug\datos.csproj.CopyComplete

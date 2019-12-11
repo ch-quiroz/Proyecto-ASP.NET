@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RentcarModelStoreContainer" CdmEntityContainer="RentcarEntities1">
+    <EntitySetMapping Name="Contrato">
+      <EntityTypeMapping TypeName="RentcarModel.Contrato">
+        <MappingFragment StoreEntitySet="Contrato">
+          <ScalarProperty Name="id_contrato" ColumnName="id_contrato" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_termino" ColumnName="fecha_termino" />
+          <ScalarProperty Name="argumento" ColumnName="argumento" />
+          <ScalarProperty Name="Fk_id_usuario" ColumnName="Fk_id_usuario" />
+          <ScalarProperty Name="Fk_id_vehiculo" ColumnName="Fk_id_vehiculo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="RentcarModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehiculo">
+      <EntityTypeMapping TypeName="RentcarModel.Vehiculo">
+        <MappingFragment StoreEntitySet="Vehiculo">
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="nro_puertas" ColumnName="nro_puertas" />
+          <ScalarProperty Name="nro_pasajeros" ColumnName="nro_pasajeros" />
+          <ScalarProperty Name="trasmision" ColumnName="trasmision" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
